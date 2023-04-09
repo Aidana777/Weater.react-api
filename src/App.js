@@ -30,13 +30,33 @@ function App() {
               <p>{data.name}</p>
             </div>
             <div className="temp">
-              {data.main ? <h1>{data.main.temp}</h1> : null}
+              {data.main ? <h1>{data.main.temp}°C</h1> : null}
             </div>
             <div className="description">
               {data.weather ? <p>{data.weather[0].description}</p> : null}
             </div>
           </div>
-          {data.name !== undefined && }
+        {
+          data.name!==undefined && (
+            <div className="bottom">
+              <div className="fells">
+               {data.main ?(
+                <p className="bold">{data.main.fells_like.toFixed()}°C</p>
+               ):null}
+               <p>Чувствуется как </p> 
+              </div>
+              <div className="humidity">
+                {data.main? <p className="bold">{data.main.humidity}%</p>: null}
+                <p>Влажность</p>
+              </div>
+              <div className="wind">
+                {data.wind ?(
+                  <p className="bold">{data.wind.speed.toFixed()}м/с</p>
+                ):null}
+                  <p>Скорость ветра</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
